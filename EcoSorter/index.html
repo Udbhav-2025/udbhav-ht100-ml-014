@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>EcoSort — Smart Waste Classifier</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body data-theme="default">
+  <header id="topbar"><h1>WASTE CLASSIFIER</h1></header>
+
+  <main id="layout">
+    <!-- LEFT COLUMN -->
+    <section id="leftCol">
+      <div class="monitor">
+        <div class="monitor-bezel">
+          <div class="monitor-screen">
+            <video id="video" autoplay playsinline muted></video>
+          </div>
+          <div class="monitor-chin">CVzone</div>
+        </div>
+      </div>
+
+      <div class="controls">
+        <div class="hint">Use Camera or Upload an Image</div>
+        <div class="btn-row">
+          <button id="startBtn">Start Camera</button>
+          <button id="stopBtn" class="ghost" disabled>Stop Camera</button>
+          <button id="captureBtn" disabled>Capture</button>
+        </div>
+
+        <div class="upload-row">
+          <input id="uploadInput" type="file" accept="image/*" />
+          <button id="uploadBtn">Upload Image</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- RIGHT COLUMN -->
+    <aside id="rightCol">
+      <div class="result-card" id="itemCard" aria-hidden="true">
+        <div class="thumb"><img id="itemImg" src="" alt="item preview" /></div>
+        <div class="meta">
+          <div id="itemLabel" aria-live="polite">Item: —</div>
+          <div id="itemConf" class="muted">Confidence: —</div>
+        </div>
+      </div>
+
+      <div id="arrow">⬇</div>
+
+      <div class="result-card" id="binCard" aria-hidden="true">
+        <div class="bin-outer">
+          <div class="bin-lid closed" id="binLid">
+            <div class="lid-top"></div>
+            <div class="lid-hinge"></div>
+          </div>
+
+          <div class="bin-body" id="binBody">
+            <div class="bin-inner">
+              <svg viewBox="0 0 120 80" class="bin-doodle" aria-hidden="true">
+                <path d="M8 48 L36 32 L36 64 Z" fill="none" stroke="#fff" stroke-width="2"/>
+                <path d="M36 32 L84 32" stroke="#fff" stroke-width="2"/>
+                <rect x="88" y="26" width="10" height="28" rx="1" fill="none" stroke="#fff" stroke-width="2"/>
+                <rect x="90" y="18" width="6" height="8" rx="1" fill="none" stroke="#fff" stroke-width="2"/>
+                <path d="M54 54 C60 56, 68 62, 64 68 C60 74, 52 76, 46 72 C40 68, 42 60, 48 58 Z" fill="none" stroke="#fff" stroke-width="2"/>
+              </svg>
+            </div>
+          </div>
+
+          <div class="bin-footer">
+            <div class="bin-wheel left-wheel"></div>
+            <div class="bin-wheel right-wheel"></div>
+          </div>
+        </div>
+
+        <div class="meta">
+          <div id="binLabel" aria-live="polite">Bin: —</div>
+          <div id="binAdvice" class="muted">Advice: —</div>
+        </div>
+      </div>
+
+      <div class="action-row">
+        <button id="sendBtn" disabled>Send to Classify</button>
+        <button id="clearBtn" class="ghost">Clear</button>
+      </div>
+    </aside>
+  </main>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
